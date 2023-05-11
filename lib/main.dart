@@ -39,10 +39,13 @@ import 'package:blackhole/Screens/Login/pref.dart';
 import 'package:blackhole/Screens/Player/audioplayer.dart';
 import 'package:blackhole/Screens/Settings/setting.dart';
 import 'package:blackhole/Services/audio_service.dart';
+import 'package:blackhole/config/config_env.dart';
 import 'package:blackhole/theme/app_theme.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
@@ -53,6 +56,15 @@ import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+      apiKey: iConfig.configEnv.apiKey,
+      appId: iConfig.configEnv.appId,
+      messagingSenderId: iConfig.configEnv.messagingSenderId,
+      projectId: iConfig.configEnv.projectId,
+    ),
+  );
   Paint.enableDithering = true;
 
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {

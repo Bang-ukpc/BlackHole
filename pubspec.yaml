@@ -52,6 +52,9 @@ dependencies:
   url_launcher: ^6.1.10
   uuid: ^3.0.7
   youtube_explode_dart: ^1.12.4
+  firebase_core: ^2.11.0
+  flutter_local_notifications: ^14.0.0+1
+  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +71,7 @@ flutter:
   assets:
     # Add assets to the application.
     - assets/
+    - .env
 
 msix_config:
   display_name: BlackHole
