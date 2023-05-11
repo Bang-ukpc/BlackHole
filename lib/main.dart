@@ -27,7 +27,6 @@ import 'package:blackhole/Helpers/handle_native.dart';
 import 'package:blackhole/Helpers/import_export_playlist.dart';
 import 'package:blackhole/Helpers/logging.dart';
 import 'package:blackhole/Helpers/route_handler.dart';
-import 'package:blackhole/Screens/About/about.dart';
 import 'package:blackhole/Screens/Home/home.dart';
 import 'package:blackhole/Screens/Library/downloads.dart';
 import 'package:blackhole/Screens/Library/nowplaying.dart';
@@ -302,7 +301,6 @@ class _MyAppState extends State<MyApp> {
         '/': (context) => initialFuntion(),
         '/pref': (context) => const PrefScreen(),
         '/setting': (context) => const SettingPage(),
-        '/about': (context) => AboutScreen(),
         '/playlists': (context) => PlaylistScreen(),
         '/nowplaying': (context) => NowPlaying(),
         '/recent': (context) => RecentlyPlayed(),

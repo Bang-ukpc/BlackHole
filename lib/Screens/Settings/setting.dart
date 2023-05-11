@@ -446,383 +446,383 @@ class _SettingPageState extends State<SettingPage>
                               Theme.of(context).brightness == Brightness.dark,
                           child: Column(
                             children: [
-                              ListTile(
-                                title: Text(
-                                  AppLocalizations.of(
-                                    context,
-                                  )!
-                                      .bgGrad,
-                                ),
-                                subtitle: Text(
-                                  AppLocalizations.of(
-                                    context,
-                                  )!
-                                      .bgGradSub,
-                                ),
-                                trailing: Padding(
-                                  padding: const EdgeInsets.all(
-                                    10.0,
-                                  ),
-                                  child: Container(
-                                    height: 25,
-                                    width: 25,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(
-                                        100.0,
-                                      ),
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .secondary,
-                                      gradient: LinearGradient(
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                        colors: Theme.of(context).brightness ==
-                                                Brightness.dark
-                                            ? currentTheme.getBackGradient()
-                                            : [
-                                                Colors.white,
-                                                Theme.of(context).canvasColor,
-                                              ],
-                                      ),
-                                      boxShadow: const [
-                                        BoxShadow(
-                                          color: Colors.white24,
-                                          blurRadius: 5.0,
-                                          offset: Offset(
-                                            0.0,
-                                            3.0,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                onTap: () {
-                                  final List<List<Color>> gradients =
-                                      currentTheme.backOpt;
-                                  PopupDialog().showPopup(
-                                    context: context,
-                                    child: SizedBox(
-                                      width: 500,
-                                      child: ListView.builder(
-                                        shrinkWrap: true,
-                                        physics: const BouncingScrollPhysics(),
-                                        padding: const EdgeInsets.fromLTRB(
-                                          0,
-                                          30,
-                                          0,
-                                          10,
-                                        ),
-                                        itemCount: gradients.length,
-                                        itemBuilder: (context, index) {
-                                          return Padding(
-                                            padding: const EdgeInsets.only(
-                                              left: 20.0,
-                                              right: 20.0,
-                                              bottom: 15.0,
-                                            ),
-                                            child: GestureDetector(
-                                              onTap: () {
-                                                settingsBox.put(
-                                                  'backGrad',
-                                                  index,
-                                                );
-                                                currentTheme.backGrad = index;
-                                                widget.callback!();
-                                                switchToCustomTheme();
-                                                Navigator.pop(context);
-                                                setState(
-                                                  () {},
-                                                );
-                                              },
-                                              child: Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.125,
-                                                height: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.125,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                    15.0,
-                                                  ),
-                                                  gradient: LinearGradient(
-                                                    begin: Alignment.topLeft,
-                                                    end: Alignment.bottomRight,
-                                                    colors: gradients[index],
-                                                  ),
-                                                ),
-                                                child: (currentTheme
-                                                            .getBackGradient() ==
-                                                        gradients[index])
-                                                    ? const Icon(
-                                                        Icons.done_rounded,
-                                                      )
-                                                    : const SizedBox(),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  );
-                                },
-                                dense: true,
-                              ),
-                              ListTile(
-                                title: Text(
-                                  AppLocalizations.of(
-                                    context,
-                                  )!
-                                      .cardGrad,
-                                ),
-                                subtitle: Text(
-                                  AppLocalizations.of(
-                                    context,
-                                  )!
-                                      .cardGradSub,
-                                ),
-                                trailing: Padding(
-                                  padding: const EdgeInsets.all(
-                                    10.0,
-                                  ),
-                                  child: Container(
-                                    height: 25,
-                                    width: 25,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(
-                                        100.0,
-                                      ),
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .secondary,
-                                      gradient: LinearGradient(
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                        colors: Theme.of(context).brightness ==
-                                                Brightness.dark
-                                            ? currentTheme.getCardGradient()
-                                            : [
-                                                Colors.white,
-                                                Theme.of(context).canvasColor,
-                                              ],
-                                      ),
-                                      boxShadow: const [
-                                        BoxShadow(
-                                          color: Colors.white24,
-                                          blurRadius: 5.0,
-                                          offset: Offset(
-                                            0.0,
-                                            3.0,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                onTap: () {
-                                  final List<List<Color>> gradients =
-                                      currentTheme.cardOpt;
-                                  PopupDialog().showPopup(
-                                    context: context,
-                                    child: SizedBox(
-                                      width: 500,
-                                      child: ListView.builder(
-                                        shrinkWrap: true,
-                                        physics: const BouncingScrollPhysics(),
-                                        padding: const EdgeInsets.fromLTRB(
-                                          0,
-                                          30,
-                                          0,
-                                          10,
-                                        ),
-                                        itemCount: gradients.length,
-                                        itemBuilder: (context, index) {
-                                          return Padding(
-                                            padding: const EdgeInsets.only(
-                                              left: 20.0,
-                                              right: 20.0,
-                                              bottom: 15.0,
-                                            ),
-                                            child: GestureDetector(
-                                              onTap: () {
-                                                settingsBox.put(
-                                                  'cardGrad',
-                                                  index,
-                                                );
-                                                currentTheme.cardGrad = index;
-                                                widget.callback!();
-                                                switchToCustomTheme();
-                                                Navigator.pop(context);
-                                                setState(
-                                                  () {},
-                                                );
-                                              },
-                                              child: Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.125,
-                                                height: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.125,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                    15.0,
-                                                  ),
-                                                  gradient: LinearGradient(
-                                                    begin: Alignment.topLeft,
-                                                    end: Alignment.bottomRight,
-                                                    colors: gradients[index],
-                                                  ),
-                                                ),
-                                                child: (currentTheme
-                                                            .getCardGradient() ==
-                                                        gradients[index])
-                                                    ? const Icon(
-                                                        Icons.done_rounded,
-                                                      )
-                                                    : const SizedBox(),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  );
-                                },
-                                dense: true,
-                              ),
-                              ListTile(
-                                title: Text(
-                                  AppLocalizations.of(
-                                    context,
-                                  )!
-                                      .bottomGrad,
-                                ),
-                                subtitle: Text(
-                                  AppLocalizations.of(
-                                    context,
-                                  )!
-                                      .bottomGradSub,
-                                ),
-                                trailing: Padding(
-                                  padding: const EdgeInsets.all(
-                                    10.0,
-                                  ),
-                                  child: Container(
-                                    height: 25,
-                                    width: 25,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(
-                                        100.0,
-                                      ),
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .secondary,
-                                      gradient: LinearGradient(
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                        colors: Theme.of(context).brightness ==
-                                                Brightness.dark
-                                            ? currentTheme.getBottomGradient()
-                                            : [
-                                                Colors.white,
-                                                Theme.of(context).canvasColor,
-                                              ],
-                                      ),
-                                      boxShadow: const [
-                                        BoxShadow(
-                                          color: Colors.white24,
-                                          blurRadius: 5.0,
-                                          offset: Offset(
-                                            0.0,
-                                            3.0,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                onTap: () {
-                                  final List<List<Color>> gradients =
-                                      currentTheme.backOpt;
-                                  PopupDialog().showPopup(
-                                    context: context,
-                                    child: SizedBox(
-                                      width: 500,
-                                      child: ListView.builder(
-                                        shrinkWrap: true,
-                                        physics: const BouncingScrollPhysics(),
-                                        padding: const EdgeInsets.fromLTRB(
-                                          0,
-                                          30,
-                                          0,
-                                          10,
-                                        ),
-                                        itemCount: gradients.length,
-                                        itemBuilder: (context, index) {
-                                          return Padding(
-                                            padding: const EdgeInsets.only(
-                                              left: 20.0,
-                                              right: 20.0,
-                                              bottom: 15.0,
-                                            ),
-                                            child: GestureDetector(
-                                              onTap: () {
-                                                settingsBox.put(
-                                                  'bottomGrad',
-                                                  index,
-                                                );
-                                                currentTheme.bottomGrad = index;
-                                                switchToCustomTheme();
-                                                Navigator.pop(context);
-                                                setState(
-                                                  () {},
-                                                );
-                                              },
-                                              child: Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.125,
-                                                height: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.125,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                    15.0,
-                                                  ),
-                                                  gradient: LinearGradient(
-                                                    begin: Alignment.topLeft,
-                                                    end: Alignment.bottomRight,
-                                                    colors: gradients[index],
-                                                  ),
-                                                ),
-                                                child: (currentTheme
-                                                            .getBottomGradient() ==
-                                                        gradients[index])
-                                                    ? const Icon(
-                                                        Icons.done_rounded,
-                                                      )
-                                                    : const SizedBox(),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  );
-                                },
-                                dense: true,
-                              ),
+                              // ListTile(
+                              //   title: Text(
+                              //     AppLocalizations.of(
+                              //       context,
+                              //     )!
+                              //         .bgGrad,
+                              //   ),
+                              //   subtitle: Text(
+                              //     AppLocalizations.of(
+                              //       context,
+                              //     )!
+                              //         .bgGradSub,
+                              //   ),
+                              //   trailing: Padding(
+                              //     padding: const EdgeInsets.all(
+                              //       10.0,
+                              //     ),
+                              //     child: Container(
+                              //       height: 25,
+                              //       width: 25,
+                              //       decoration: BoxDecoration(
+                              //         borderRadius: BorderRadius.circular(
+                              //           100.0,
+                              //         ),
+                              //         color: Theme.of(context)
+                              //             .colorScheme
+                              //             .secondary,
+                              //         gradient: LinearGradient(
+                              //           begin: Alignment.topLeft,
+                              //           end: Alignment.bottomRight,
+                              //           colors: Theme.of(context).brightness ==
+                              //                   Brightness.dark
+                              //               ? currentTheme.getBackGradient()
+                              //               : [
+                              //                   Colors.white,
+                              //                   Theme.of(context).canvasColor,
+                              //                 ],
+                              //         ),
+                              //         boxShadow: const [
+                              //           BoxShadow(
+                              //             color: Colors.white24,
+                              //             blurRadius: 5.0,
+                              //             offset: Offset(
+                              //               0.0,
+                              //               3.0,
+                              //             ),
+                              //           )
+                              //         ],
+                              //       ),
+                              //     ),
+                              //   ),
+                              //   onTap: () {
+                              //     final List<List<Color>> gradients =
+                              //         currentTheme.backOpt;
+                              //     PopupDialog().showPopup(
+                              //       context: context,
+                              //       child: SizedBox(
+                              //         width: 500,
+                              //         child: ListView.builder(
+                              //           shrinkWrap: true,
+                              //           physics: const BouncingScrollPhysics(),
+                              //           padding: const EdgeInsets.fromLTRB(
+                              //             0,
+                              //             30,
+                              //             0,
+                              //             10,
+                              //           ),
+                              //           itemCount: gradients.length,
+                              //           itemBuilder: (context, index) {
+                              //             return Padding(
+                              //               padding: const EdgeInsets.only(
+                              //                 left: 20.0,
+                              //                 right: 20.0,
+                              //                 bottom: 15.0,
+                              //               ),
+                              //               child: GestureDetector(
+                              //                 onTap: () {
+                              //                   settingsBox.put(
+                              //                     'backGrad',
+                              //                     index,
+                              //                   );
+                              //                   currentTheme.backGrad = index;
+                              //                   widget.callback!();
+                              //                   switchToCustomTheme();
+                              //                   Navigator.pop(context);
+                              //                   setState(
+                              //                     () {},
+                              //                   );
+                              //                 },
+                              //                 child: Container(
+                              //                   width: MediaQuery.of(context)
+                              //                           .size
+                              //                           .width *
+                              //                       0.125,
+                              //                   height: MediaQuery.of(context)
+                              //                           .size
+                              //                           .width *
+                              //                       0.125,
+                              //                   decoration: BoxDecoration(
+                              //                     borderRadius:
+                              //                         BorderRadius.circular(
+                              //                       15.0,
+                              //                     ),
+                              //                     gradient: LinearGradient(
+                              //                       begin: Alignment.topLeft,
+                              //                       end: Alignment.bottomRight,
+                              //                       colors: gradients[index],
+                              //                     ),
+                              //                   ),
+                              //                   child: (currentTheme
+                              //                               .getBackGradient() ==
+                              //                           gradients[index])
+                              //                       ? const Icon(
+                              //                           Icons.done_rounded,
+                              //                         )
+                              //                       : const SizedBox(),
+                              //                 ),
+                              //               ),
+                              //             );
+                              //           },
+                              //         ),
+                              //       ),
+                              //     );
+                              //   },
+                              //   dense: true,
+                              // ),
+                              // ListTile(
+                              //   title: Text(
+                              //     AppLocalizations.of(
+                              //       context,
+                              //     )!
+                              //         .cardGrad,
+                              //   ),
+                              //   subtitle: Text(
+                              //     AppLocalizations.of(
+                              //       context,
+                              //     )!
+                              //         .cardGradSub,
+                              //   ),
+                              //   trailing: Padding(
+                              //     padding: const EdgeInsets.all(
+                              //       10.0,
+                              //     ),
+                              //     child: Container(
+                              //       height: 25,
+                              //       width: 25,
+                              //       decoration: BoxDecoration(
+                              //         borderRadius: BorderRadius.circular(
+                              //           100.0,
+                              //         ),
+                              //         color: Theme.of(context)
+                              //             .colorScheme
+                              //             .secondary,
+                              //         gradient: LinearGradient(
+                              //           begin: Alignment.topLeft,
+                              //           end: Alignment.bottomRight,
+                              //           colors: Theme.of(context).brightness ==
+                              //                   Brightness.dark
+                              //               ? currentTheme.getCardGradient()
+                              //               : [
+                              //                   Colors.white,
+                              //                   Theme.of(context).canvasColor,
+                              //                 ],
+                              //         ),
+                              //         boxShadow: const [
+                              //           BoxShadow(
+                              //             color: Colors.white24,
+                              //             blurRadius: 5.0,
+                              //             offset: Offset(
+                              //               0.0,
+                              //               3.0,
+                              //             ),
+                              //           )
+                              //         ],
+                              //       ),
+                              //     ),
+                              //   ),
+                              //   onTap: () {
+                              //     final List<List<Color>> gradients =
+                              //         currentTheme.cardOpt;
+                              //     PopupDialog().showPopup(
+                              //       context: context,
+                              //       child: SizedBox(
+                              //         width: 500,
+                              //         child: ListView.builder(
+                              //           shrinkWrap: true,
+                              //           physics: const BouncingScrollPhysics(),
+                              //           padding: const EdgeInsets.fromLTRB(
+                              //             0,
+                              //             30,
+                              //             0,
+                              //             10,
+                              //           ),
+                              //           itemCount: gradients.length,
+                              //           itemBuilder: (context, index) {
+                              //             return Padding(
+                              //               padding: const EdgeInsets.only(
+                              //                 left: 20.0,
+                              //                 right: 20.0,
+                              //                 bottom: 15.0,
+                              //               ),
+                              //               child: GestureDetector(
+                              //                 onTap: () {
+                              //                   settingsBox.put(
+                              //                     'cardGrad',
+                              //                     index,
+                              //                   );
+                              //                   currentTheme.cardGrad = index;
+                              //                   widget.callback!();
+                              //                   switchToCustomTheme();
+                              //                   Navigator.pop(context);
+                              //                   setState(
+                              //                     () {},
+                              //                   );
+                              //                 },
+                              //                 child: Container(
+                              //                   width: MediaQuery.of(context)
+                              //                           .size
+                              //                           .width *
+                              //                       0.125,
+                              //                   height: MediaQuery.of(context)
+                              //                           .size
+                              //                           .width *
+                              //                       0.125,
+                              //                   decoration: BoxDecoration(
+                              //                     borderRadius:
+                              //                         BorderRadius.circular(
+                              //                       15.0,
+                              //                     ),
+                              //                     gradient: LinearGradient(
+                              //                       begin: Alignment.topLeft,
+                              //                       end: Alignment.bottomRight,
+                              //                       colors: gradients[index],
+                              //                     ),
+                              //                   ),
+                              //                   child: (currentTheme
+                              //                               .getCardGradient() ==
+                              //                           gradients[index])
+                              //                       ? const Icon(
+                              //                           Icons.done_rounded,
+                              //                         )
+                              //                       : const SizedBox(),
+                              //                 ),
+                              //               ),
+                              //             );
+                              //           },
+                              //         ),
+                              //       ),
+                              //     );
+                              //   },
+                              //   dense: true,
+                              // ),
+                              // ListTile(
+                              //   title: Text(
+                              //     AppLocalizations.of(
+                              //       context,
+                              //     )!
+                              //         .bottomGrad,
+                              //   ),
+                              //   subtitle: Text(
+                              //     AppLocalizations.of(
+                              //       context,
+                              //     )!
+                              //         .bottomGradSub,
+                              //   ),
+                              //   trailing: Padding(
+                              //     padding: const EdgeInsets.all(
+                              //       10.0,
+                              //     ),
+                              //     child: Container(
+                              //       height: 25,
+                              //       width: 25,
+                              //       decoration: BoxDecoration(
+                              //         borderRadius: BorderRadius.circular(
+                              //           100.0,
+                              //         ),
+                              //         color: Theme.of(context)
+                              //             .colorScheme
+                              //             .secondary,
+                              //         gradient: LinearGradient(
+                              //           begin: Alignment.topLeft,
+                              //           end: Alignment.bottomRight,
+                              //           colors: Theme.of(context).brightness ==
+                              //                   Brightness.dark
+                              //               ? currentTheme.getBottomGradient()
+                              //               : [
+                              //                   Colors.white,
+                              //                   Theme.of(context).canvasColor,
+                              //                 ],
+                              //         ),
+                              //         boxShadow: const [
+                              //           BoxShadow(
+                              //             color: Colors.white24,
+                              //             blurRadius: 5.0,
+                              //             offset: Offset(
+                              //               0.0,
+                              //               3.0,
+                              //             ),
+                              //           )
+                              //         ],
+                              //       ),
+                              //     ),
+                              //   ),
+                              //   onTap: () {
+                              //     final List<List<Color>> gradients =
+                              //         currentTheme.backOpt;
+                              //     PopupDialog().showPopup(
+                              //       context: context,
+                              //       child: SizedBox(
+                              //         width: 500,
+                              //         child: ListView.builder(
+                              //           shrinkWrap: true,
+                              //           physics: const BouncingScrollPhysics(),
+                              //           padding: const EdgeInsets.fromLTRB(
+                              //             0,
+                              //             30,
+                              //             0,
+                              //             10,
+                              //           ),
+                              //           itemCount: gradients.length,
+                              //           itemBuilder: (context, index) {
+                              //             return Padding(
+                              //               padding: const EdgeInsets.only(
+                              //                 left: 20.0,
+                              //                 right: 20.0,
+                              //                 bottom: 15.0,
+                              //               ),
+                              //               child: GestureDetector(
+                              //                 onTap: () {
+                              //                   settingsBox.put(
+                              //                     'bottomGrad',
+                              //                     index,
+                              //                   );
+                              //                   currentTheme.bottomGrad = index;
+                              //                   switchToCustomTheme();
+                              //                   Navigator.pop(context);
+                              //                   setState(
+                              //                     () {},
+                              //                   );
+                              //                 },
+                              //                 child: Container(
+                              //                   width: MediaQuery.of(context)
+                              //                           .size
+                              //                           .width *
+                              //                       0.125,
+                              //                   height: MediaQuery.of(context)
+                              //                           .size
+                              //                           .width *
+                              //                       0.125,
+                              //                   decoration: BoxDecoration(
+                              //                     borderRadius:
+                              //                         BorderRadius.circular(
+                              //                       15.0,
+                              //                     ),
+                              //                     gradient: LinearGradient(
+                              //                       begin: Alignment.topLeft,
+                              //                       end: Alignment.bottomRight,
+                              //                       colors: gradients[index],
+                              //                     ),
+                              //                   ),
+                              //                   child: (currentTheme
+                              //                               .getBottomGradient() ==
+                              //                           gradients[index])
+                              //                       ? const Icon(
+                              //                           Icons.done_rounded,
+                              //                         )
+                              //                       : const SizedBox(),
+                              //                 ),
+                              //               ),
+                              //             );
+                              //           },
+                              //         ),
+                              //       ),
+                              //     );
+                              //   },
+                              //   dense: true,
+                              // ),
                               ListTile(
                                 title: Text(
                                   AppLocalizations.of(
